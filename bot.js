@@ -3,7 +3,10 @@ const client = new Discord.Client();
 const prefix = '!';
 
 client.on('ready', () => {
-    console.log(`Запустился бот ${client.username}`);
+    console.log(`Запустился бот - ${client.user.username}`);
+    client.generateInvite(["ADMINISTRATOR"]).then(link => {
+        console.log(link);
+    })
 });
 
 client.on('message', msg => {
